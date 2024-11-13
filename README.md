@@ -11,7 +11,7 @@ Please read the [RSJF documentation](https://rjsf-team.github.io/react-jsonschem
 
 # Demo
 
-To easily demo our questions, either run our opinioated implementation (LINK), or copy the key value pairs of the JSON into the correct input of the [(RJSF) playground](https://rjsf-team.github.io/react-jsonschema-form/)
+To easily demo our questions, either run our opinionated implementation (LINK), or copy the key value pairs of the JSON into the correct input of the [(RJSF) playground](https://rjsf-team.github.io/react-jsonschema-form/)
 
 # License
 [Apache License 2.0](./LICENSE)
