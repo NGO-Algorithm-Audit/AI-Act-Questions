@@ -16,7 +16,7 @@
       "outputAlgorithm": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk impactvol algoritme"
+        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme"
       },
       "outputIntermediateAISystem": {
         "type": "string",
@@ -137,7 +137,7 @@
             "enum": ["Ja", "Nee"]
           }
         },
-        "required": ["q3"],
+        "required": ["q4"],
         "dependencies": {
           "q4": {
             "oneOf": [
@@ -225,7 +225,8 @@
                     "default": ""
                   },
                   "effect": { "$ref": "#/definitions/effect" }
-                }
+                },
+                "required": ["q6_yes"]
               },
               {
                 "properties": {
@@ -342,7 +343,8 @@
                   "Nee"
                 ]
               }
-            }
+            },
+            "required": ["q3"]
           }
         ]
       },
