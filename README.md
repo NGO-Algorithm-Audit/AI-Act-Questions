@@ -1,7 +1,6 @@
 # AI Act Questions
 
-AI Act questions based on AI Act requirements and soft law frameworks, such as the Research framework Algorithms of the Netherlands Executive Audit Agency, the Algorithm framework of the Dutch Ministry of the Interior and the Dutch Fundamental Rights Impact Assessment (IAMA).
-
+AI Act questions based on AI Act defintions and the definition of High Impact Algorithm in the Algorithm Registery guidance by the Dutch Ministry of the Interior (https://algoritmes.pleio.nl/attachment/entity/f1a35292-7ea6-4e47-93fa-b3358e9ab2e0)
 The templates are available in JSON format and can be easily customized to fit the specific needs of an organization.
 
 # How it works.
@@ -15,3 +14,5 @@ To easily demo our questions, either run our [opinionated implementation](https:
 
 # License
 [Apache License 2.0](./LICENSE)
+
+When building on this work, please attribute NGO Algorithm Audit https://algorithmaudit.eu/
