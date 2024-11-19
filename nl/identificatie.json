@@ -18,6 +18,11 @@
         "title": "Uitslag",
         "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme"
       },
+      "outputAlgorithmAndAI": {
+        "type": "string",
+        "title": "Uitslag",
+        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een AI-systeem en een impactvol algoritme"
+      },
       "outputIntermediateAISystem": {
         "type": "string",
         "title": "Uitslag",
@@ -68,28 +73,10 @@
                 "q7_option5": {
                   "type": "string",
                   "title": "Beschrijf het effect van de toepassing op het proces"
-                }
+                },
+                "output": { "$ref": "#/definitions/outputNoAI" }
               },
-              "required": ["q7_option5"],
-              "allOf": [
-                {
-                  "if": {
-                    "properties": {
-                      "q2": { "enum": ["Ja, door statistische methode"] }
-                    }
-                  },
-                  "then": {
-                    "properties": {
-                      "output": { "$ref": "#/definitions/outputAI" }
-                    }
-                  },
-                  "else": {
-                    "properties": {
-                      "output": { "$ref": "#/definitions/outputAlgorithm" }
-                    }
-                  }
-                }
-              ]
+              "required": ["q7_option5"]
             }
           },
           {
@@ -105,25 +92,80 @@
               }
             },
             "then": {
-              "allOf": [
-                {
-                  "if": {
-                    "properties": {
-                      "q2": { "enum": ["Ja, door statistische methode"] }
-                    }
-                  },
-                  "then": {
-                    "properties": {
-                      "output": { "$ref": "#/definitions/outputAI" }
-                    }
-                  },
-                  "else": {
-                    "properties": {
-                      "output": { "$ref": "#/definitions/outputAlgorithm" }
-                    }
-                  }
+              "properties": {
+                "output": { "$ref": "#/definitions/outputAlgorithm" }
+              }
+            }
+          }
+        ]
+      },
+      "effectAI": {
+        "title": "EffectAI",
+        "type": "object",
+        "properties": {
+          "q7": {
+            "type": "string",
+            "title": "Wat is het effect van de toepassing op de burger?",
+            "enum": [
+              "De uitkomst van het proces wordt direct bepaald door de toepassing",
+              "De uitkomst van het proces wordt in grote mate beïnvloed door de toepassing",
+              "De uitkomst van het proces wordt in zekere mate beïnvloed door de output van de toepassing",
+              "De uitkomst van het proces wordt volledig door een mens bepaald en wordt beïnvloed door meerdere factoren waarin de output slechts een van deze factoren is",
+              "Een ander soort effect"
+            ]
+          }
+        },
+        "required": ["q7"],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "q7": {
+                  "enum": [
+                    "De uitkomst van het proces wordt volledig door een mens bepaald en wordt beïnvloed door meerdere factoren waarin de output slechts een van deze factoren is"
+                  ]
                 }
-              ]
+              }
+            },
+            "then": {
+              "properties": {
+                "output": { "$ref": "#/definitions/outputAI" }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "q7": { "enum": ["Een ander soort effect"] }
+              }
+            },
+            "then": {
+              "properties": {
+                "q7_option5": {
+                  "type": "string",
+                  "title": "Beschrijf het effect van de toepassing op het proces"
+                },
+                "output": { "$ref": "#/definitions/outputAI" }
+              },
+              "required": ["q7_option5"]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "q7": {
+                  "enum": [
+                    "De uitkomst van het proces wordt direct bepaald door de toepassing",
+                    "De uitkomst van het proces wordt in grote mate beïnvloed door de toepassing",
+                    "De uitkomst van het proces wordt in zekere mate beïnvloed door de output van de toepassing"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "output": { "$ref": "#/definitions/outputAlgorithmAndAI" }
+              }
             }
           }
         ]
@@ -230,7 +272,7 @@
               },
               {
                 "properties": {
-                  "q7": {
+                  "q6": {
                     "enum": ["Nee"]
                   },
                   "output": { "$ref": "#/definitions/outputNoAI" }
@@ -247,10 +289,11 @@
         "title": "Tot welke van de volgende categorieën behoort de uitkomst van de toepassing?",
         "enum": [
           "Een ingeschatte score, rangschikking of kans",
-          "Een ingeschat label of classificatie",
+          "Een ingeschat label of classificatie \n- ja/nee, hoog/laag of een indeling in groepen. Bijvoorbeeld ten behoeve van routering, communicatie campagnes of risico classificatie",
           "Een aanbeveling",
           "Een beslissing",
-          "Content (geschreven tekst, video, audio of afbeeldingen)",
+          "Content \n- geschreven tekst, video, audio of  afbeeldingen",
+          "Een grafiek of dashboard \n- wanneer in dit dashboard een ingeschatte score, classificatie of aanbeveling wordt laten zien, kies dan die andere antwoord optie.",
           "Een ander soort output"
         ]
       }
@@ -276,20 +319,28 @@
           {
             "properties": {
               "q1": {
+                "enum": ["Een grafiek of dashboard \n- wanneer in dit dashboard een ingeschatte score, classificatie of aanbeveling wordt laten zien, kies dan die andere antwoord optie."]
+              },
+              "output": { "$ref": "#/definitions/outputNoAI" }
+            }
+          },
+          {
+            "properties": {
+              "q1": {
                 "enum": [
                   "Een ingeschatte score, rangschikking of kans",
-                  "Een ingeschat label of classificatie",
+                  "Een ingeschat label of classificatie \n- ja/nee, hoog/laag of een indeling in groepen. Bijvoorbeeld ten behoeve van routering, communicatie campagnes of risico classificatie",
                   "Een aanbeveling",
                   "Een beslissing",
-                  "Content (geschreven tekst, video, audio of afbeeldingen)"
+                  "Content \n- geschreven tekst, video, audio of  afbeeldingen"
                 ]
               },
               "q2": {
                 "type": "string",
                 "title": "Bevat de toepassing een model of beslisregels die uit data zijn afgeleid?",
                 "enum": [
-                  "Ja, handmatig opgesteld",
-                  "Ja, door statistische methode",
+                  "Ja, het model of algoritme is handmatig opgesteld, maar inzichten uit data-analyse hebben geholpen bij het ontwerp",
+                  "Ja, het model of algoritme is afgeleid uit data met behulp van statistiek, optimalisatie, simulatie, machine learning of een vergelijkbare techniek",
                   "Nee"
                 ]
               }
@@ -303,7 +354,7 @@
           {
             "properties": {
               "q2": {
-                "enum": ["Ja, handmatig opgesteld"]
+                "enum": ["Ja, het model of algoritme is handmatig opgesteld, maar inzichten uit data-analyse hebben geholpen bij het ontwerp"]
               },
               "outputIntermediate": {
                 "type": "string",
@@ -317,7 +368,7 @@
           {
             "properties": {
               "q2": {
-                "enum": ["Ja, door statistische methode"]
+                "enum": ["Ja, het model of algoritme is afgeleid uit data met behulp van statistiek, optimalisatie, simulatie, machine learning of een vergelijkbare techniek"]
               },
               "outputIntermediate": {
                 "type": "string",
@@ -417,25 +468,32 @@
   },
   "uiSchema": {
     "q1": {
-      "ui:widget": "radio"
+      "ui:widget": "radio",
+      "ui:description": "Kies de categorie die het meeste van toepassing is"
     },
     "q2": {
-      "ui:widget": "radio"
+      "ui:widget": "radio",
+      "ui:description":"Data omvat alle vormen van elektronische gegevens. Tekst, afbeeldingen, audio zijn ook data. \n\nVerschillende vormen van algoritmes kunnen uit data worden afgeleid. Bij regel-gebasseerde algoritmes kunnen drempelwaardes voor (uitval)regels  of weegfactoren voor beslissingen uit data worden berekend. \nStatistische modellen worden gefit op data en machine learning wordt gebruikt om een model te leren uit data. Large language modellen zoals ChatGPT maken gebruik van machine learning."
     },
     "q3": {
-      "ui:widget": "radio"
+      "ui:widget": "radio",
+      "ui:description": "Een voorbeeld van in wet- of regelgeving vastgestelde regels is een regelgebaseerd algoritme dat bij aanvraag voor een bijstandsuitkering geautomatiseerd aangeeft wanneer niet is voldaan inkomens- en vermogenseisen. De regels in het algoritme zijn in dat geval een letterlijke implementatie van de normen in de participatiewet.\nWanneer een norm open is gedefninieerd in wet- of regelgeving en deze verder worden gespecificeerd in de toepassing, is de toepassing geen een-op-een automatisering van wet- of regelgeving.\n\nVoorbeelden van door mensen opgestelde regels zijn een regelgebaseerd algoritme waarbij een werkinstructie is vertaald naar een algoritme, een risicoprofiel waarbij de regels met de hand zijn opgesteld op basis van ervaring van medewerkers of wettelijke normen die verder gespecificeerd zijn in regels.\n\nLogica en op kennis gebaseerde benaderingen worden ook wel symbolische AI genoemd (symbolic AI). Onder deze  vorm van AI vallen kennisrepresentatie, inductief (logisch) programmeren, kennisbanken, inferentie- en deductiemachines, (symbolisch) redeneren. Deze technologie wordt vaak ingezet in expert systemen."
     },
     "q4": {
-      "ui:widget": "radio"
+      "ui:widget": "radio",
+      "ui:description": "**Let op: een beslissing is veel breder dan een formeel besluit.**\n\nDenk aan prioritering van de opvolging vraag of verzoek van een burger, wel/geen verzoek aan burger om aanvullende informatie aan te leveren, wel/geen selectie voor controle of inspectie, wel niet (proactief) aanbieden van specifieke voorziening bij bijstand."
     },
     "q5": {
-      "ui:widget": "radio"
+      "ui:widget": "radio",
+      "ui:description": "Kies de mogelijkheid die het beste past"
     },
     "q6": {
-      "ui:widget": "radio"
+      "ui:widget": "radio",
+      "ui:description": "Kies 'Ja' wanneer je het niet zeker weet en beschrijf in de volgende vraag kort waarom."
     },
     "q7": {
-      "ui:widget": "radio"
+      "ui:widget": "radio",
+      "ui:description": "Kies de mogelijkheid die het beste past"
     },
     "outputIntermediate": {
       "ui:widget": "textarea",
