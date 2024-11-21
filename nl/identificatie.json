@@ -1,12 +1,12 @@
 {
   "JSONSchema": {
-    "title": "Identificatie van AI-systeem en impactvolle algoritmes",
+    "title": "Identificatie AI-systeem en impactvolle algoritmes",
     "type": "object",
     "definitions": {
       "outputNoAI": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden geen AI systeem of impactvol algoritme."
+        "default": "Uw toepassing is op basis van uw antwoorden geen AI-systeem of impactvol algoritme."
       },
       "outputAI": {
         "type": "string",
@@ -26,7 +26,7 @@
       "outputIntermediateAISystem": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in."
+        "default": "Deze toepassing is waarschijnlijk een AI-systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in."
       },
       "effect": {
         "title": "Effect",
@@ -475,7 +475,7 @@
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
+                "title": "Deze toepassing is waarschijnlijk een AI-systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
                 "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
               },
               "impact": { "$ref": "#/definitions/impactAI" }
@@ -537,7 +537,7 @@
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
+                "title": "Deze toepassing is waarschijnlijk een AI-systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
                 "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
               },
               "impact": { "$ref": "#/definitions/impactAI" }
