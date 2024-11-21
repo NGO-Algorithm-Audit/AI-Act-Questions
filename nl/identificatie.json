@@ -11,22 +11,22 @@
       "outputAI": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een AI-systeem"
+        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een AI-systeem volgens de AI Act. Vul de volgende vragenlijst in om te bepalen of de toepassing moet voldoen aan eisen volgens de AI Act."
       },
       "outputAlgorithm": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme"
+        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme. Het algoritme moet worden opgenomen in de het algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid."
       },
       "outputAlgorithmAndAI": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een AI-systeem en een impactvol algoritme"
+        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme. Het algoritme moet worden opgenomen in de het algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid. \nUw toepassing is op basis van uw antwoorden waarschijnlijk ook een AI-systeem volgens de AI Act. Vul de volgende vragenlijst in om te bepalen Vul de volgende vragenlijst in om te bepalen of de toepassing moet voldoen aan aanvullende eisen volgens de AI Act."
       },
       "outputIntermediateAISystem": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een AI-systeem, ga door met invullen van de AI Risk Assessment"
+        "default": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in."
       },
       "effect": {
         "title": "Effect",
@@ -34,7 +34,7 @@
         "properties": {
           "q7": {
             "type": "string",
-            "title": "Wat is het effect van de toepassing op de burger?",
+            "title": "Welke van de volgende opties beschijft het effect van de toepassing op de uitkomst het beste?",
             "enum": [
               "De uitkomst van het proces wordt direct bepaald door de toepassing (hier is geen menselijke tussenkomst voor nodig). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
               "De uitkomst van het proces wordt sterk beïnvloed door de toepassing. Bijvoorbeeld doordat werkvoorschriften bepalen wat het gevolg is van een bepaalde uitkomst van de toepassing. Een medewerker kan in sommige gevallen andere keuzes maken, maar meestal bepaalt het resultaat van het systeem wat het eindresultaat van het proces zal zijn.",
@@ -89,7 +89,7 @@
         "properties": {
           "q7": {
             "type": "string",
-            "title": "Wat is het effect van de toepassing op de burger?",
+            "title": "Welke van de volgende opties beschijft het effect van de toepassing op de uitkomst het beste?",
             "enum": [
               "De uitkomst van het proces wordt direct bepaald door de toepassing (hier is geen menselijke tussenkomst voor nodig). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
               "De uitkomst van het proces wordt sterk beïnvloed door de toepassing. Bijvoorbeeld doordat werkvoorschriften bepalen wat het gevolg is van een bepaalde uitkomst van de toepassing. Een medewerker kan in sommige gevallen andere keuzes maken, maar meestal bepaalt het resultaat van het systeem wat het eindresultaat van het proces zal zijn.",
@@ -144,7 +144,7 @@
         "properties": {
           "q4": {
             "type": "string",
-            "title": "Worden in het proces beslissingen genomen voor individuele burgers?",
+            "title": "Worden in het proces beslissingen genomen voor individuele burgers of ambtenaren?",
             "enum": ["Ja", "Nee"]
           }
         },
@@ -159,16 +159,16 @@
                   },
                   "q5": {
                     "type": "string",
-                    "title": "Wat voor soort beslissingen worden genomen in dit proces?",
+                    "title": "Wat voor soort beslissingen worden genomen in dit proces? \nKies de optie die de grootste overeenkomst heeft met de soort beslissing.",
                     "enum": [
                       "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
                       "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger. \n- Bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen.\n- Bijvoorbeeld beslissingen over aanvraag van diensten of een vergunning toekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatie verschaffing door de burger",
+                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
+                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
+                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
                       "Beslissing over toewijzing van scholen",
-                      "Beslissingen over het (proactief) aanbieden van diensten of voorzieningen of over advisering",
-                      "Anders"
+                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen",
+                      "Overige of andere beslissingen"
                     ]
                   }
                 },
@@ -181,8 +181,8 @@
                   },
                   "q6": {
                     "type": "string",
-                    "title": "Draagt het proces bij aan hoe de overheid (groepen) burgers categoriseert of benadert?",
-                    "enum": ["Ja", "Nee"]
+                    "title": "Draag het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
+                    "enum": ["Ja", "Ik weet het niet zeker", "Nee"]
                   }
                 },
                 "required": ["q6"]
@@ -194,16 +194,16 @@
               {
                 "properties": {
                   "q5": {
-                    "enum": ["Anders"]
+                    "enum": ["Overige of andere beslissingen"]
                   },
-                  "q5_option6": {
+                  "q5_option8": {
                     "type": "string",
                     "title": "Beschrijf het soort beslissing",
                     "default": ""
                   },
                   "output": { "$ref": "#/definitions/outputNoAI" }
                 },
-                "required": ["q5_option6"]
+                "required": ["q5_option8"]
               },
               {
                 "properties": {
@@ -211,11 +211,11 @@
                     "enum": [
                       "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
                       "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger. \n- Bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen.\n- Bijvoorbeeld beslissingen over aanvraag van diensten of een vergunning toekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatie verschaffing door de burger",
+                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
+                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
+                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
                       "Beslissing over toewijzing van scholen",
-                      "Beslissingen over het (proactief) aanbieden van diensten of voorzieningen of over advisering"
+                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen"
                     ]
                   },
                   "effect": { "$ref": "#/definitions/effect" }
@@ -230,14 +230,22 @@
                   "q6": {
                     "enum": ["Ja"]
                   },
-                  "q6_yes": {
+                  "effect": { "$ref": "#/definitions/effect" }
+                }
+              },
+              {
+                "properties": {
+                  "q6": {
+                    "enum": ["Ik weet het niet zeker"]
+                  },
+                  "q6_unsure": {
                     "type": "string",
-                    "title": "Geef een korte beschrijving op welke manier dit proces bijdraagt aan categorisering of benadering van burgers",
+                    "title": "Geef een korte beschrijving van het proces en hoe dit burgers of ambtenaren raakt.",
                     "default": ""
                   },
                   "effect": { "$ref": "#/definitions/effect" }
                 },
-                "required": ["q6_yes"]
+                "required": ["q6_unsure"]
               },
               {
                 "properties": {
@@ -272,16 +280,16 @@
                   },
                   "q5": {
                     "type": "string",
-                    "title": "Wat voor soort beslissingen worden genomen in dit proces?",
+                    "title": "Wat voor soort beslissingen worden genomen in dit proces? \nKies de optie die de grootste overeenkomst heeft met de soort beslissing.",
                     "enum": [
                       "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
                       "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger. \n- Bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen.\n- Bijvoorbeeld beslissingen over aanvraag van diensten of een vergunning toekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatie verschaffing door de burger",
+                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
+                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
+                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
                       "Beslissing over toewijzing van scholen",
-                      "Beslissingen over het (proactief) aanbieden van diensten of voorzieningen of over advisering",
-                      "Anders"
+                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen",
+                      "Overige of andere beslissingen"
                     ]
                   }
                 },
@@ -294,8 +302,8 @@
                   },
                   "q6": {
                     "type": "string",
-                    "title": "Draagt het proces bij aan hoe de overheid (groepen) burgers categoriseert of benadert?",
-                    "enum": ["Ja", "Nee"]
+                    "title": "Draag het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
+                    "enum": ["Ja", "Ik weet het niet zeker", "Nee"]
                   }
                 },
                 "required": ["q6"]
@@ -307,16 +315,16 @@
               {
                 "properties": {
                   "q5": {
-                    "enum": ["Anders"]
+                    "enum": ["Overige of andere beslissingen"]
                   },
-                  "q5_option6": {
+                  "q5_option8": {
                     "type": "string",
                     "title": "Beschrijf het soort beslissing",
                     "default": ""
                   },
                   "output": { "$ref": "#/definitions/outputAI" }
                 },
-                "required": ["q5_option6"]
+                "required": ["q5_option8"]
               },
               {
                 "properties": {
@@ -324,11 +332,11 @@
                     "enum": [
                       "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
                       "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger. \n- Bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen.\n- Bijvoorbeeld beslissingen over aanvraag van diensten of een vergunning toekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatie verschaffing door de burger",
+                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
+                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
+                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
                       "Beslissing over toewijzing van scholen",
-                      "Beslissingen over het (proactief) aanbieden van diensten of voorzieningen of over advisering"
+                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen"
                     ]
                   },
                   "effect": { "$ref": "#/definitions/effectAI" }
@@ -343,14 +351,22 @@
                   "q6": {
                     "enum": ["Ja"]
                   },
-                  "q6_yes": {
+                  "effect": { "$ref": "#/definitions/effectAI" }
+                }
+              },
+              {
+                "properties": {
+                  "q6": {
+                    "enum": ["Ik weet het niet zeker"]
+                  },
+                  "q6_unsure": {
                     "type": "string",
-                    "title": "Geef een korte beschrijving op welke manier dit proces bijdraagt aan categorisering of benadering van burgers",
+                    "title": "Geef een korte beschrijving van het proces en hoe dit burgers of ambtenaren raakt.",
                     "default": ""
                   },
                   "effect": { "$ref": "#/definitions/effectAI" }
                 },
-                "required": ["q6_yes"]
+                "required": ["q6_unsure"]
               },
               {
                 "properties": {
@@ -368,14 +384,14 @@
     "properties": {
       "q1": {
         "type": "string",
-        "title": "Tot welke van de volgende categorieën behoort de uitkomst van de toepassing?",
+        "title": "Welke van de volgende categorieën beschrijft de uitkomst van de toepassing het beste??",
         "enum": [
           "Een ingeschatte score, rangschikking of kans",
-          "Een ingeschat label of classificatie \n- ja/nee, hoog/laag of een indeling in groepen. Bijvoorbeeld ten behoeve van routering, communicatie campagnes of risico classificatie",
+          "Een ingeschat label of classificatie zoals ja/nee, hoog/laag of een indeling in groepen.\nBijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie",
           "Een aanbeveling",
           "Een beslissing",
-          "Content \n- geschreven tekst, video, audio of  afbeeldingen",
-          "Een grafiek of dashboard \n- wanneer in dit dashboard een ingeschatte score, classificatie of aanbeveling wordt laten zien, kies dan die andere antwoord optie.",
+          "Content, zoals geschreven tekst, video, audio of  afbeeldingen",
+          "Een dashboard of grafiek met enkel rechtstreekse datavisualisatie.\nWanneer in dit dashboard een van de eerdere opties wordt weergeven, kies dan de eerdere optie.",
           "Een ander soort output"
         ]
       }
@@ -401,7 +417,7 @@
           {
             "properties": {
               "q1": {
-                "enum": ["Een grafiek of dashboard \n- wanneer in dit dashboard een ingeschatte score, classificatie of aanbeveling wordt laten zien, kies dan die andere antwoord optie."]
+                "enum": ["Een dashboard of grafiek met enkel rechtstreekse datavisualisatie.\nWanneer in dit dashboard een van de eerdere opties wordt weergeven, kies dan de eerdere optie."]
               },
               "output": { "$ref": "#/definitions/outputNoAI" }
             }
@@ -411,10 +427,10 @@
               "q1": {
                 "enum": [
                   "Een ingeschatte score, rangschikking of kans",
-                  "Een ingeschat label of classificatie \n- ja/nee, hoog/laag of een indeling in groepen. Bijvoorbeeld ten behoeve van routering, communicatie campagnes of risico classificatie",
+                  "Een ingeschat label of classificatie zoals ja/nee, hoog/laag of een indeling in groepen.\nBijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie",
                   "Een aanbeveling",
                   "Een beslissing",
-                  "Content \n- geschreven tekst, video, audio of  afbeeldingen"
+                  "Content, zoals geschreven tekst, video, audio of  afbeeldingen"
                 ]
               },
               "q2": {
@@ -474,9 +490,9 @@
                 "type": "string",
                 "title": "Is de toepassing automatisering van door mensen opgestelde regels? ",
                 "enum": [
-                  "Ja, een-op-een automatisering van regels die in wet- of regelgeving of formeel beleid zijn vastgesteld",
-                  "Ja, automatisering van van regels of formules, maar deze zijn niet expliciet vastgesteld in wet- of regelgeving of formeel beleid",
-                  "Ja,  logica- en kennis-gebaseerde benaderingen van AI waarbij uitkomsten worden afgeleid uit gecodeerde kennis of uit een symbolische weergave van de op te lossen taak",
+                  "Ja, een-op-een automatisering van in wet- of regelgeving of formeel beleid vastgestelde regels",
+                  "Ja, automatisering van regels, maar deze zijn niet expliciet vastgesteld in wet- of regelgeving of formeel beleid",
+                  "Ja, logica- en kennis-gebaseerde benaderingen van AI waarbij uitkomsten worden afgeleid uit gecodeerde kennis of uit een symbolische weergave van de op te lossen taak",
                   "Nee"
                 ]
               }
@@ -490,7 +506,7 @@
           {
             "properties": {
               "q3": {
-                "enum": ["Ja, een-op-een automatisering van regels die in wet- of regelgeving of formeel beleid zijn vastgesteld"]
+                "enum": ["Ja, een-op-een automatisering van in wet- of regelgeving of formeel beleid vastgestelde regels"]
               },
               "q3_yes1": {
                 "type": "string",
@@ -504,7 +520,7 @@
           {
             "properties": {
               "q3": {
-                "enum": ["Ja, automatisering van van regels of formules, maar deze zijn niet expliciet vastgesteld in wet- of regelgeving of formeel beleid"]
+                "enum": ["Ja, automatisering van regels, maar deze zijn niet expliciet vastgesteld in wet- of regelgeving of formeel beleid"]
               },
               "outputIntermediate": {
                 "type": "string",
@@ -517,11 +533,11 @@
           {
             "properties": {
               "q3": {
-                "enum": ["Ja,  logica- en kennis-gebaseerde benaderingen van AI waarbij uitkomsten worden afgeleid uit gecodeerde kennis of uit een symbolische weergave van de op te lossen taak"]
+                "enum": ["Ja, logica- en kennis-gebaseerde benaderingen van AI waarbij uitkomsten worden afgeleid uit gecodeerde kennis of uit een symbolische weergave van de op te lossen taak"]
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "'Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
+                "title": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
                 "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
               },
               "impact": { "$ref": "#/definitions/impactAI" }
@@ -552,8 +568,7 @@
   },
   "uiSchema": {
     "q1": {
-      "ui:widget": "radio",
-      "ui:description": "Kies de categorie die het meeste van toepassing is"
+      "ui:widget": "radio"
     },
     "q2": {
       "ui:widget": "radio",
@@ -565,19 +580,18 @@
     },
     "q4": {
       "ui:widget": "radio",
-      "ui:description": "Denk aan prioritering van de opvolging vraag of verzoek van een burger, wel/geen verzoek aan burger om aanvullende informatie aan te leveren, wel/geen selectie voor controle of inspectie, wel niet (proactief) aanbieden van specifieke voorziening bij bijstand.\n\nLet op: een beslissing is veel breder dan een formeel besluit."
+      "ui:enableMarkdownInDescription": true,
+      "ui:description": "Denk aan prioritering van de opvolging van een vraag of verzoek van een burger, wel/geen verzoek aan burger om aanvullende informatie aan te leveren, wel/geen selectie voor controle of inspectie, wel/niet (proactief) aanbieden van specifieke voorziening bij bijstand etc.\n\n**Let op: een beslissing is veel breder dan een formeel besluit.**"
     },
     "q5": {
-      "ui:widget": "radio",
-      "ui:description": "Kies de optie die de grootste overeenkomst heeft met de soort beslissing."
+      "ui:widget": "radio"
     },
     "q6": {
-      "ui:widget": "radio",
-      "ui:description": "Kies 'Ja' wanneer je het niet zeker weet en beschrijf in de volgende vraag kort waarom."
+      "ui:widget": "radio"
     },
     "q7": {
       "ui:widget": "radio",
-      "ui:description": "Kies de mogelijkheid die het beste past"
+      "ui:description": "Kies bij twijfel de bovenste van de opties waarover u twijfelt."
     },
     "outputIntermediate": {
       "ui:widget": "textarea",
