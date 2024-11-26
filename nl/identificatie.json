@@ -6,27 +6,27 @@
       "outputNoAI": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden geen AI-systeem of impactvol algoritme."
+        "default": "Op basis van uw antwoorden is uw toepassing geen AI-systeem of impactvol algoritme."
       },
       "outputAI": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een AI-systeem volgens de AI Act. Vul de volgende vragenlijst in om te bepalen of de toepassing moet voldoen aan eisen volgens de AI Act."
+        "default": "Op basis van uw antwoorden is uw toepassing een AI-systeem volgens de AI-verordening. Vul de volgende vragenlijst in om te bepalen aan welke vereisten uit de AI-verordening de toepassing moet voldoen."
       },
       "outputAlgorithm": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme. Het algoritme moet worden opgenomen in de het algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid."
+        "default": "Op basis van uw antwoorden is uw toepassing een impactvol algoritme. Het algoritme moet worden opgenomen in de het Algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid."
       },
       "outputAlgorithmAndAI": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme. Het algoritme moet worden opgenomen in de het algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid. \nUw toepassing is op basis van uw antwoorden waarschijnlijk ook een AI-systeem volgens de AI Act. Vul de volgende vragenlijst in om te bepalen Vul de volgende vragenlijst in om te bepalen of de toepassing moet voldoen aan aanvullende eisen volgens de AI Act."
+        "default": "Op basis van uw antwoorden is uw toepassing een impactvol algoritme. Het algoritme moet worden opgenomen in de het Algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid. \nOp basis van uw antwoorden is uw toepassing ook een AI-systeem volgens de AI-verordening. Vul de volgende vragenlijst in om te bepalen Vul de volgende vragenlijst in om te bepalen of de toepassing moet voldoen aan aanvullende eisen volgens de AI-verordening."
       },
       "outputIntermediateAISystem": {
         "type": "string",
         "title": "Uitslag",
-        "default": "Deze toepassing is waarschijnlijk een AI-systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in."
+        "default": "Deze toepassing is een AI-systeem volgens de AI-verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in."
       },
       "effect": {
         "title": "Effect",
@@ -91,10 +91,10 @@
             "type": "string",
             "title": "Welke van de volgende opties beschijft het effect van de toepassing op de uitkomst het beste?",
             "enum": [
-              "De uitkomst van het proces wordt direct bepaald door de toepassing (hier is geen menselijke tussenkomst voor nodig). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
+              "De uitkomst van het proces wordt direct bepaald door de toepassing (er is geen sprake van menselijke tussenkomst). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
               "De uitkomst van het proces wordt sterk beïnvloed door de toepassing. Bijvoorbeeld doordat werkvoorschriften bepalen wat het gevolg is van een bepaalde uitkomst van de toepassing. Een medewerker kan in sommige gevallen andere keuzes maken, maar meestal bepaalt het resultaat van het systeem wat het eindresultaat van het proces zal zijn.",
               "De uitkomst van het proces wordt deels beïnvloed door de toepassing. Het resultaat van de toepassing is belangrijk voor het eindresultaat, maar de uiteindelijke beslissing wordt genomen door een medewerker. Deze medewerker heeft de juiste informatie, ervaring/kunde, mandaat en beschikbare tijd om de beslissing te maken.",
-              "De uitkomst van het proces wordt volledig door een mens bepaald en hangt af van meedere factoren. Het resultaat van de toepassing is slechts één van de factoren en is niet doorslaggevend in de keuze.",
+              "De uitkomst van het proces wordt volledig door een mens bepaald en hangt af van meedere factoren. Het resultaat van de toepassing is slechts één van de factoren en is niet doorslaggevend in de beslissing.",
               "Een ander soort effect"
             ]
           }
@@ -144,7 +144,7 @@
         "properties": {
           "q4": {
             "type": "string",
-            "title": "Worden in het proces beslissingen genomen voor individuele burgers of ambtenaren?",
+            "title": "Wordt in het proces een beslissing genomen voor individuele burgers of ambtenaren?",
             "enum": ["Ja", "Nee"]
           }
         },
@@ -159,7 +159,7 @@
                   },
                   "q5": {
                     "type": "string",
-                    "title": "Wat voor soort beslissingen worden genomen in dit proces? \nKies de optie die de grootste overeenkomst heeft met de soort beslissing.",
+                    "title": "Wat voor soort beslissing wordt er genomen in dit proces?\n\nKies de optie die de grootste overeenkomst heeft met de soort beslissing.",
                     "enum": [
                       "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
                       "Beslissing over formele klachten en bezwaren",
@@ -181,7 +181,7 @@
                   },
                   "q6": {
                     "type": "string",
-                    "title": "Draag het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
+                    "title": "Draagt het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
                     "enum": ["Ja", "Ik weet het niet zeker", "Nee"]
                   }
                 },
@@ -302,7 +302,7 @@
                   },
                   "q6": {
                     "type": "string",
-                    "title": "Draag het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
+                    "title": "Draagt het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
                     "enum": ["Ja", "Ik weet het niet zeker", "Nee"]
                   }
                 },
@@ -384,14 +384,14 @@
     "properties": {
       "q1": {
         "type": "string",
-        "title": "Welke van de volgende categorieën beschrijft de uitkomst van de toepassing het beste??",
+        "title": "Welke van de volgende categorieën beschrijft de uitkomst van de toepassing het beste?",
         "enum": [
           "Een ingeschatte score, rangschikking of kans",
-          "Een ingeschat label of classificatie zoals ja/nee, hoog/laag of een indeling in groepen.\nBijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie",
+          "Een ingeschat label of classificatie (zoals ja/nee, hoog/laag) of een indeling in groepen\n(bijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie)",
           "Een aanbeveling",
           "Een beslissing",
-          "Content, zoals geschreven tekst, video, audio of  afbeeldingen",
-          "Een dashboard of grafiek met enkel rechtstreekse datavisualisatie.\nWanneer in dit dashboard een van de eerdere opties wordt weergeven, kies dan de eerdere optie.",
+          "Content, zoals geschreven tekst, video, audio of afbeeldingen",
+          "Een dashboard of grafiek met enkel rechtstreekse datavisualisatie\n(wanneer in dit dashboard een van de bovenstaande opties wordt weergeven, kies dan deze optie)",
           "Een ander soort output"
         ]
       }
@@ -417,7 +417,7 @@
           {
             "properties": {
               "q1": {
-                "enum": ["Een dashboard of grafiek met enkel rechtstreekse datavisualisatie.\nWanneer in dit dashboard een van de eerdere opties wordt weergeven, kies dan de eerdere optie."]
+                "enum": ["Een dashboard of grafiek met enkel rechtstreekse datavisualisatie\n(wanneer in dit dashboard een van de eerdere opties wordt weergeven, kies dan de eerdere optie)"]
               },
               "output": { "$ref": "#/definitions/outputNoAI" }
             }
@@ -427,10 +427,10 @@
               "q1": {
                 "enum": [
                   "Een ingeschatte score, rangschikking of kans",
-                  "Een ingeschat label of classificatie zoals ja/nee, hoog/laag of een indeling in groepen.\nBijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie",
+                  "Een ingeschat label of classificatie (zoals ja/nee, hoog/laag) of een indeling in groepen\n(bijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie)",
                   "Een aanbeveling",
                   "Een beslissing",
-                  "Content, zoals geschreven tekst, video, audio of  afbeeldingen"
+                  "Content, zoals geschreven tekst, video, audio of afbeeldingen"
                 ]
               },
               "q2": {
@@ -456,13 +456,13 @@
               },
               "q2_yes1": {
                 "type": "string",
-                "title": "Beschrijf hoe het algoritme tot stand gekomen is. Op welke manier heeft data-analyse bijgedragen?",
+                "title": "Beschrijf hoe het algoritme tot stand gekomen is. Op welke manier heeft data-analyse bijgedragen aan het ontwerp van het algoritme?",
                 "default": ""
               },
               "outputIntermediate": {
                 "type": "string",
                 "title": "Volgende stap",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol in het besluitvormingsproces heeft."
               },
               "impact": { "$ref": "#/definitions/impact" }
             },
@@ -475,8 +475,8 @@
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Deze toepassing is waarschijnlijk een AI-systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "title": "Deze toepassing is een AI-systeem volgens de AI-verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
+                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol in het besluitvormingsproces heeft."
               },
               "impact": { "$ref": "#/definitions/impactAI" }
             }
@@ -525,7 +525,7 @@
               "outputIntermediate": {
                 "type": "string",
                 "title": "Volgende stap",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol in het besluitvormingsproces heeft."
               },
               "impact": { "$ref": "#/definitions/impact" }
             }
@@ -537,8 +537,8 @@
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Deze toepassing is waarschijnlijk een AI-systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "title": "Deze toepassing is een AI-systeem volgens de AI-verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
+                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol in het besluitvormingsproces heeft."
               },
               "impact": { "$ref": "#/definitions/impactAI" }
             }
@@ -556,7 +556,7 @@
               "outputIntermediate": {
                 "type": "string",
                 "title": "Volgende stap",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol in het besluitvormingsproces heeft."
               },
               "impact": { "$ref": "#/definitions/impact" }
             },
@@ -572,16 +572,16 @@
     },
     "q2": {
       "ui:widget": "radio",
-      "ui:description":"Data omvat alle vormen van elektronische gegevens. Tekst, afbeeldingen, audio zijn ook data. \n\nVerschillende vormen van algoritmes kunnen uit data worden afgeleid. Bij regel-gebasseerde algoritmes kunnen drempelwaardes voor (uitval)regels  of weegfactoren voor beslissingen uit data worden berekend. \nStatistische modellen worden gefit op data en machine learning wordt gebruikt om een model te leren uit data. Large language modellen zoals ChatGPT maken gebruik van machine learning."
+      "ui:description":"Data omvat alle vormen van elektronische gegevens. Tekst, afbeeldingen, audio zijn ook data. \n\nVerschillende vormen van algoritmes kunnen uit data worden afgeleid. Bij regel-gebasseerde algoritmes kunnen drempelwaardes voor (uitval)regels of weegfactoren voor beslissingen uit data worden berekend.\nOok klassieke statistische modellen, zoals regressiemodellen, worden afgeleid uit data. Machine learning wordt gebruikt om een model te leren uit data. Large language modellen zoals ChatGPT maken gebruik van machine learning."
     },
     "q3": {
       "ui:widget": "radio",
-      "ui:description": "Een voorbeeld van in wet- of regelgeving vastgestelde regels is een regelgebaseerd algoritme dat bij aanvraag voor een bijstandsuitkering geautomatiseerd aangeeft wanneer niet is voldaan inkomens- en vermogenseisen. De regels in het algoritme zijn in dat geval een letterlijke implementatie van de normen in de participatiewet.\nWanneer een norm open is gedefninieerd in wet- of regelgeving en deze verder worden gespecificeerd in de toepassing, is de toepassing geen een-op-een automatisering van wet- of regelgeving.\n\nVoorbeelden van door mensen opgestelde regels zijn een regelgebaseerd algoritme waarbij een werkinstructie is vertaald naar een algoritme, een risicoprofiel waarbij de regels met de hand zijn opgesteld op basis van ervaring van medewerkers of wettelijke normen die verder gespecificeerd zijn in regels.\n\nLogica en op kennis gebaseerde benaderingen worden ook wel symbolische AI genoemd (symbolic AI). Onder deze  vorm van AI vallen kennisrepresentatie, inductief (logisch) programmeren, kennisbanken, inferentie- en deductiemachines, (symbolisch) redeneren. Deze technologie wordt vaak ingezet in expert systemen."
+      "ui:description": "Een voorbeeld van in wet- of regelgeving vastgestelde regels is een regelgebaseerd algoritme dat bij aanvraag voor een bijstandsuitkering geautomatiseerd aangeeft wanneer niet is voldaan inkomens- en vermogenseisen. De regels in het algoritme zijn in dat geval een letterlijke implementatie van normen gespecificeerd in de Participatiewet.\nWanneer een norm open is gedefninieerd in wet- of regelgeving en deze verder worden gespecificeerd in de toepassing, is de toepassing geen een-op-een automatisering van wet- of regelgeving.\n\nVoorbeelden van door mensen opgestelde regels zijn een regelgebaseerd algoritme waarbij een werkinstructie is vertaald naar een algoritme, een risicoprofiel waarbij de regels met de hand zijn opgesteld op basis van ervaring van medewerkers of wettelijke normen die verder gespecificeerd zijn in regels.\n\nOp logica- en kennis-gebaseerde benaderingen worden ook wel symbolische AI-systemen genoemd (symbolic AI). Onder deze  vorm van AI-systemen vallen kennisrepresentatie, inductief (logisch) programmeren, kennisbanken, inferentie- en deductiemachines, (symbolisch) redeneren. Deze vormen van technologie zijn zeldzaam."
     },
     "q4": {
       "ui:widget": "radio",
       "ui:enableMarkdownInDescription": true,
-      "ui:description": "Denk aan prioritering van de opvolging van een vraag of verzoek van een burger, wel/geen verzoek aan burger om aanvullende informatie aan te leveren, wel/geen selectie voor controle of inspectie, wel/niet (proactief) aanbieden van specifieke voorziening bij bijstand etc.\n\n**Let op: een beslissing is veel breder dan een formeel besluit.**"
+      "ui:description": "Denk aan prioritering, opvolging van een vraag of een verzoek van een burger. Bijvoorbeeld wel/geen verzoek aan een burger om aanvullende informatie aan te leveren, wel/geen selectie voor controle of inspectie, wel/niet (proactief) aanbieden van specifieke voorziening bij bijstand etc.\n\n**Let op: een beslissing is veel breder dan een formeel besluit zoals gedefinieerd in de Algemene wet bestuursrecht Art. 1:3.**"
     },
     "q5": {
       "ui:widget": "radio"

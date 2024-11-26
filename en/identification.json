@@ -1,32 +1,32 @@
 {
   "JSONSchema": {
-    "title": "Identification of AI-system and High Impact Algorithm",
+    "title": "Identification of AI systems and high-impact algorithms",
     "type": "object",
     "definitions": {
       "outputNoAI": {
         "type": "string",
-        "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden geen AI systeem of impactvol algoritme."
+        "title": "Result",
+        "default": "Based on your answers, your application is not an AI system or high-impact algorithm."
       },
       "outputAI": {
         "type": "string",
-        "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een AI-systeem volgens de AI Act. Vul de volgende vragenlijst in om te bepalen of de toepassing moet voldoen aan eisen volgens de AI Act."
+        "title": "Result",
+        "default": "Based on your answers, your application is an AI system under the AI Act. Complete the following questionnaire to determine which requirements of the AI Act your application must comply with."
       },
       "outputAlgorithm": {
         "type": "string",
-        "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme. Het algoritme moet worden opgenomen in de het algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid."
+        "title": "Result",
+        "default": "Based on your answers, your application is a high-impact algorithm. The algorithm must be registered in a algorithm register and adhere to internal algorithm policies."
       },
       "outputAlgorithmAndAI": {
         "type": "string",
-        "title": "Uitslag",
-        "default": "Uw toepassing is op basis van uw antwoorden waarschijnlijk een impactvol algoritme. Het algoritme moet worden opgenomen in de het algoritmeregister en het moet voldoen aan intern geldend algoritmebeleid. \nUw toepassing is op basis van uw antwoorden waarschijnlijk ook een AI-systeem volgens de AI Act. Vul de volgende vragenlijst in om te bepalen Vul de volgende vragenlijst in om te bepalen of de toepassing moet voldoen aan aanvullende eisen volgens de AI Act."
+        "title": "Result",
+        "default": "Based on your answers, your application is a high-impact algorithm. The algorithm must be registered in a algorithm register and adhere to internal algorithm policies.\nYour application is based on your answers most likely also an AI system according to the AI Act. Complete the following questionnaire to determine which requirements of the AI Act your application must comply with."
       },
       "outputIntermediateAISystem": {
         "type": "string",
-        "title": "Uitslag",
-        "default": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in."
+        "title": "Result",
+        "default": "Based on your answers, your application is an AI system according to the AI Act. It may also qualify as a high-impact algorithm. Complete the following questionnaire to find out."
       },
       "effect": {
         "title": "Effect",
@@ -34,49 +34,65 @@
         "properties": {
           "q7": {
             "type": "string",
-            "title": "Welke van de volgende opties beschijft het effect van de toepassing op de uitkomst het beste?",
+            "title": "Which of the following options best describes your application's impact on its outcome?",
             "enum": [
-              "De uitkomst van het proces wordt direct bepaald door de toepassing (hier is geen menselijke tussenkomst voor nodig). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
-              "De uitkomst van het proces wordt sterk beïnvloed door de toepassing. Bijvoorbeeld doordat werkvoorschriften bepalen wat het gevolg is van een bepaalde uitkomst van de toepassing. Een medewerker kan in sommige gevallen andere keuzes maken, maar meestal bepaalt het resultaat van het systeem wat het eindresultaat van het proces zal zijn.",
-              "De uitkomst van het proces wordt deels beïnvloed door de toepassing. Het resultaat van de toepassing is belangrijk voor het eindresultaat, maar de uiteindelijke beslissing wordt genomen door een medewerker. Deze medewerker heeft de juiste informatie, ervaring/kunde, mandaat en beschikbare tijd om de beslissing te maken.",
-              "De uitkomst van het proces wordt volledig door een mens bepaald en hangt af van meedere factoren. Het resultaat van de toepassing is slechts één van de factoren en is niet doorslaggevend in de keuze.",
-              "Een ander soort effect"
+              "The outcome of the process is generated solely by the application without human intervention. Once the proces is complete, a human analyst can review and evaluate the results.",
+              "The outcome of the process is heavily influenced by the application. For instance, because work prescription determine what the effect is of certain outcomes of the application. A human analyst can deviate from the outcome, but most often does the outcome of the application determine the outcome of the process.",
+              "The outcome of the process is partly influenced by the application. The outcome of the application is important for the outcome, but the ultimate decision is taken by a human analyst. This analyst has sufficient information, knowledge/experience, mandate and available time to take the decision.",
+              "The outcome of the process is fully determined by a human analyst and is influenced by multiple factors. The result of the application is one of many factors and is not decisive in the decision.",
+              "Another type of output"
             ]
           }
         },
-        "required": ["q7"],
+        "required": [
+          "q7"
+        ],
         "dependencies": {
           "q7": {
             "oneOf": [
               {
                 "properties": {
                   "q7": {
-                    "enum": [ "De uitkomst van het proces wordt volledig door een mens bepaald en hangt af van meedere factoren. Het resultaat van de toepassing is slechts één van de factoren en is niet doorslaggevend in de keuze." ]
+                    "enum": [
+                      "The outcome of the process is fully determined by a human analyst and is influenced by multiple factors. The result of the application is one of many factors and is not decisive in the decision."
+                    ]
                   },
-                  "output": { "$ref": "#/definitions/outputNoAI" }
+                  "output": {
+                    "$ref": "#/definitions/outputNoAI"
+                  }
                 }
-              },
-              {
-                "properties": {
-                  "q7": { "enum": ["Een ander soort effect"] },
-                  "q7_option5": {
-                    "type": "string",
-                    "title": "Beschrijf het effect van de toepassing op het proces"
-                  },
-                  "output": { "$ref": "#/definitions/outputNoAI" }
-                },
-                "required": ["q7_option5"]
               },
               {
                 "properties": {
                   "q7": {
                     "enum": [
-                      "De uitkomst van het proces wordt direct bepaald door de toepassing (hier is geen menselijke tussenkomst voor nodig). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
-                      "De uitkomst van het proces wordt sterk beïnvloed door de toepassing. Bijvoorbeeld doordat werkvoorschriften bepalen wat het gevolg is van een bepaalde uitkomst van de toepassing. Een medewerker kan in sommige gevallen andere keuzes maken, maar meestal bepaalt het resultaat van het systeem wat het eindresultaat van het proces zal zijn.",
-                      "De uitkomst van het proces wordt deels beïnvloed door de toepassing. Het resultaat van de toepassing is belangrijk voor het eindresultaat, maar de uiteindelijke beslissing wordt genomen door een medewerker. Deze medewerker heeft de juiste informatie, ervaring/kunde, mandaat en beschikbare tijd om de beslissing te maken."
+                      "Another type of output"
                     ]
                   },
-                  "output": { "$ref": "#/definitions/outputAlgorithm" }
+                  "q7_option5": {
+                    "type": "string",
+                    "title": "Describe the effect of the application on the process"
+                  },
+                  "output": {
+                    "$ref": "#/definitions/outputNoAI"
+                  }
+                },
+                "required": [
+                  "q7_option5"
+                ]
+              },
+              {
+                "properties": {
+                  "q7": {
+                    "enum": [
+                      "The outcome of the process is generated solely by the application without human intervention. Once the proces is complete, a human analyst can review and evaluate the results.",
+                      "The outcome of the process is heavily influenced by the application. For instance, because work prescription determine what the effect is of certain outcomes of the application. A human analyst can deviate from the outcome, but most often does the outcome of the application determine the outcome of the process.",
+                      "The outcome of the process is partly influenced by the application. The outcome of the application is important for the outcome, but the ultimate decision is taken by a human analyst. This analyst has sufficient information, knowledge/experience, mandate and available time to take the decision."
+                    ]
+                  },
+                  "output": {
+                    "$ref": "#/definitions/outputAlgorithm"
+                  }
                 }
               }
             ]
@@ -89,49 +105,65 @@
         "properties": {
           "q7": {
             "type": "string",
-            "title": "Welke van de volgende opties beschijft het effect van de toepassing op de uitkomst het beste?",
+            "title": "Which of the following options best describes the effect of your application on the outcome of the application?",
             "enum": [
-              "De uitkomst van het proces wordt direct bepaald door de toepassing (hier is geen menselijke tussenkomst voor nodig). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
-              "De uitkomst van het proces wordt sterk beïnvloed door de toepassing. Bijvoorbeeld doordat werkvoorschriften bepalen wat het gevolg is van een bepaalde uitkomst van de toepassing. Een medewerker kan in sommige gevallen andere keuzes maken, maar meestal bepaalt het resultaat van het systeem wat het eindresultaat van het proces zal zijn.",
-              "De uitkomst van het proces wordt deels beïnvloed door de toepassing. Het resultaat van de toepassing is belangrijk voor het eindresultaat, maar de uiteindelijke beslissing wordt genomen door een medewerker. Deze medewerker heeft de juiste informatie, ervaring/kunde, mandaat en beschikbare tijd om de beslissing te maken.",
-              "De uitkomst van het proces wordt volledig door een mens bepaald en hangt af van meedere factoren. Het resultaat van de toepassing is slechts één van de factoren en is niet doorslaggevend in de keuze.",
-              "Een ander soort effect"
+              "The outcome of the process is generated solely by the application without human intervention. Once the proces is complete, a human analyst can review and evaluate the results.",
+              "The outcome of the process is heavily influenced by the application. For instance, because work prescription determine what the effect is of certain outcomes of the application. A human analyst can deviate from the outcome, but most often does the outcome of the application determine the outcome of the process.",
+              "The outcome of the process is partly influenced by the application. The outcome of the application is important for the outcome, but the ultimate decision is taken by a human analyst. This analyst has sufficient information, knowledge/experience, mandate and available time to take the decision.",
+              "The outcome of the process is fully determined by a human analyst and is influenced by multiple factors. The result of the application is one of many factors and is not decisive in the decision.",
+              "Another type of output"
             ]
           }
         },
-        "required": ["q7"],
+        "required": [
+          "q7"
+        ],
         "dependencies": {
           "q7": {
             "oneOf": [
               {
                 "properties": {
                   "q7": {
-                    "enum": [ "De uitkomst van het proces wordt volledig door een mens bepaald en hangt af van meedere factoren. Het resultaat van de toepassing is slechts één van de factoren en is niet doorslaggevend in de keuze." ]
+                    "enum": [
+                      "The outcome of the process is fully determined by a human analyst and is influenced by multiple factors. The result of the application is one of many factors and is not decisive in the decision."
+                    ]
                   },
-                  "output": { "$ref": "#/definitions/outputAI" }
+                  "output": {
+                    "$ref": "#/definitions/outputAI"
+                  }
                 }
-              },
-              {
-                "properties": {
-                  "q7": { "enum": ["Een ander soort effect"] },
-                  "q7_option5": {
-                    "type": "string",
-                    "title": "Beschrijf het effect van de toepassing op het proces"
-                  },
-                  "output": { "$ref": "#/definitions/outputAI" }
-                },
-                "required": ["q7_option5"]
               },
               {
                 "properties": {
                   "q7": {
                     "enum": [
-                      "De uitkomst van het proces wordt direct bepaald door de toepassing (hier is geen menselijke tussenkomst voor nodig). Nadat het proces is voltooid, kunnen mensen nog wel de resultaten controleren of analyseren.",
-                      "De uitkomst van het proces wordt sterk beïnvloed door de toepassing. Bijvoorbeeld doordat werkvoorschriften bepalen wat het gevolg is van een bepaalde uitkomst van de toepassing. Een medewerker kan in sommige gevallen andere keuzes maken, maar meestal bepaalt het resultaat van het systeem wat het eindresultaat van het proces zal zijn.",
-                      "De uitkomst van het proces wordt deels beïnvloed door de toepassing. Het resultaat van de toepassing is belangrijk voor het eindresultaat, maar de uiteindelijke beslissing wordt genomen door een medewerker. Deze medewerker heeft de juiste informatie, ervaring/kunde, mandaat en beschikbare tijd om de beslissing te maken."
+                      "Another type of output"
                     ]
                   },
-                  "output": { "$ref": "#/definitions/outputAlgorithmAndAI" }
+                  "q7_option5": {
+                    "type": "string",
+                    "title": "Describe the effect of the application on the process"
+                  },
+                  "output": {
+                    "$ref": "#/definitions/outputAI"
+                  }
+                },
+                "required": [
+                  "q7_option5"
+                ]
+              },
+              {
+                "properties": {
+                  "q7": {
+                    "enum": [
+                      "The outcome of the process is generated solely by the application without human intervention. Once the proces is complete, a human analyst can review and evaluate the results.",
+                      "The outcome of the process is heavily influenced by the application. For instance, because work prescription determine what the effect is of certain outcomes of the application. A human analyst can deviate from the outcome, but most often does the outcome of the application determine the outcome of the process.",
+                      "The outcome of the process is partly influenced by the application. The outcome of the application is important for the outcome, but the ultimate decision is taken by a human analyst. This analyst has sufficient information, knowledge/experience, mandate and available time to take the decision."
+                    ]
+                  },
+                  "output": {
+                    "$ref": "#/definitions/outputAlgorithmAndAI"
+                  }
                 }
               }
             ]
@@ -144,48 +176,65 @@
         "properties": {
           "q4": {
             "type": "string",
-            "title": "Worden in het proces beslissingen genomen voor individuele burgers of ambtenaren?",
-            "enum": ["Ja", "Nee"]
+            "title": "Is in the process a decision made for individual citizens or civil servants?",
+            "enum": [
+              "Yes",
+              "No"
+            ]
           }
         },
-        "required": ["q4"],
+        "required": [
+          "q4"
+        ],
         "dependencies": {
           "q4": {
             "oneOf": [
               {
                 "properties": {
                   "q4": {
-                    "enum": ["Ja"]
+                    "enum": [
+                      "Yes"
+                    ]
                   },
                   "q5": {
                     "type": "string",
-                    "title": "Wat voor soort beslissingen worden genomen in dit proces? \nKies de optie die de grootste overeenkomst heeft met de soort beslissing.",
+                    "title": "What type of decision is taken in the process?\n\nSelect the option that most closely resembles the type of decision.",
                     "enum": [
-                      "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
-                      "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
-                      "Beslissing over toewijzing van scholen",
-                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen",
-                      "Overige of andere beslissingen"
+                      "Decision on the prioritization of applications, requests, complaints, and objections.",
+                      "Decision on formal complaints and objections",
+                      "Decision with direct financial consequences for a citizen or civil servant,\nsuch as decisions regarding benefits, allowances, subsidies, fines, refunds, or the possibility of a payment plan.",
+                      "Decision on applications and requests without direct financial consequences,\nsuch as the approval of a service request or the granting of a permit.",
+                      "Decision on inspection, investigation, or requests for additional information",
+                      "Decision on school assignments.",
+                      "Decisions on providing advice or (proactively) offering services or provisions.",
+                      "Other type of decisions"
                     ]
                   }
                 },
-                "required": ["q5"]
+                "required": [
+                  "q5"
+                ]
               },
               {
                 "properties": {
                   "q4": {
-                    "enum": ["Nee"]
+                    "enum": [
+                      "No"
+                    ]
                   },
                   "q6": {
                     "type": "string",
-                    "title": "Draag het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
-                    "enum": ["Ja", "Ik weet het niet zeker", "Nee"]
+                    "title": "Does the process contribute to how a governmental institution categorizes or approaches (groups of) citizens or civil servants?",
+                    "enum": [
+                      "Yes",
+                      "I am not sure",
+                      "No"
+                    ]
                   }
                 },
-                "required": ["q6"]
+                "required": [
+                  "q6"
+                ]
               }
             ]
           },
@@ -194,31 +243,39 @@
               {
                 "properties": {
                   "q5": {
-                    "enum": ["Overige of andere beslissingen"]
+                    "enum": [
+                      "Other type of decisions"
+                    ]
                   },
                   "q5_option8": {
                     "type": "string",
-                    "title": "Beschrijf het soort beslissing",
+                    "title": "Describe the type of decision",
                     "default": ""
                   },
-                  "output": { "$ref": "#/definitions/outputNoAI" }
+                  "output": {
+                    "$ref": "#/definitions/outputNoAI"
+                  }
                 },
-                "required": ["q5_option8"]
+                "required": [
+                  "q5_option8"
+                ]
               },
               {
                 "properties": {
                   "q5": {
                     "enum": [
-                      "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
-                      "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
-                      "Beslissing over toewijzing van scholen",
-                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen"
+                      "Decision on the prioritization of applications, requests, complaints, and objections.",
+                      "Decision on formal complaints and objections",
+                      "Decision with direct financial consequences for a citizen or civil servant,\nsuch as decisions regarding benefits, allowances, subsidies, fines, refunds, or the possibility of a payment plan.",
+                      "Decision on applications and requests without direct financial consequences,\nsuch as the approval of a service request or the granting of a permit.",
+                      "Decision on inspection, investigation, or requests for additional information",
+                      "Decision on school assignments.",
+                      "Decisions on providing advice or (proactively) offering services or provisions."
                     ]
                   },
-                  "effect": { "$ref": "#/definitions/effect" }
+                  "effect": {
+                    "$ref": "#/definitions/effect"
+                  }
                 }
               }
             ]
@@ -228,31 +285,45 @@
               {
                 "properties": {
                   "q6": {
-                    "enum": ["Ja"]
+                    "enum": [
+                      "Yes"
+                    ]
                   },
-                  "effect": { "$ref": "#/definitions/effect" }
+                  "effect": {
+                    "$ref": "#/definitions/effect"
+                  }
                 }
               },
               {
                 "properties": {
                   "q6": {
-                    "enum": ["Ik weet het niet zeker"]
+                    "enum": [
+                      "I am not sure"
+                    ]
                   },
                   "q6_unsure": {
                     "type": "string",
-                    "title": "Geef een korte beschrijving van het proces en hoe dit burgers of ambtenaren raakt.",
+                    "title": "Give a short description of the process and how this affects citizens or civil servants.",
                     "default": ""
                   },
-                  "effect": { "$ref": "#/definitions/effect" }
+                  "effect": {
+                    "$ref": "#/definitions/effect"
+                  }
                 },
-                "required": ["q6_unsure"]
+                "required": [
+                  "q6_unsure"
+                ]
               },
               {
                 "properties": {
                   "q6": {
-                    "enum": ["Nee"]
+                    "enum": [
+                      "No"
+                    ]
                   },
-                  "output": { "$ref": "#/definitions/outputNoAI" }
+                  "output": {
+                    "$ref": "#/definitions/outputNoAI"
+                  }
                 }
               }
             ]
@@ -265,48 +336,65 @@
         "properties": {
           "q4": {
             "type": "string",
-            "title": "Worden in het proces beslissingen genomen voor individuele burgers?",
-            "enum": ["Ja", "Nee"]
+            "title": "Is in the process a decision made about a individual citizens?",
+            "enum": [
+              "Yes",
+              "No"
+            ]
           }
         },
-        "required": ["q4"],
+        "required": [
+          "q4"
+        ],
         "dependencies": {
           "q4": {
             "oneOf": [
               {
                 "properties": {
                   "q4": {
-                    "enum": ["Ja"]
+                    "enum": [
+                      "Yes"
+                    ]
                   },
                   "q5": {
                     "type": "string",
-                    "title": "Wat voor soort beslissingen worden genomen in dit proces? \nKies de optie die de grootste overeenkomst heeft met de soort beslissing.",
+                    "title": "What type of decision is made in this process?\n\nSelect the option that most closely resembles the type of decision.",
                     "enum": [
-                      "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
-                      "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
-                      "Beslissing over toewijzing van scholen",
-                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen",
-                      "Overige of andere beslissingen"
+                      "Decision on the prioritization of applications, requests, complaints, and objections",
+                      "Decision on formal complaints and objections",
+                      "Decision with direct financial consequences for a citizen or civil servant,\nsuch as decisions regarding benefits, allowances, subsidies, fines, refunds, or the possibility of a payment plan.",
+                      "Decision on applications and requests without direct financial consequences,\nsuch as the approval of a service request or the granting of a permit.",
+                      "Decision on inspection, investigation, or requests for additional information",
+                      "Decision on school assignments.",
+                      "Decisions on providing advice or (proactively) offering services or provisions.",
+                      "Other type of decisions"
                     ]
                   }
                 },
-                "required": ["q5"]
+                "required": [
+                  "q5"
+                ]
               },
               {
                 "properties": {
                   "q4": {
-                    "enum": ["Nee"]
+                    "enum": [
+                      "No"
+                    ]
                   },
                   "q6": {
                     "type": "string",
-                    "title": "Draag het proces bij aan hoe de overheid (groepen) burgers of ambtenaren categoriseert of benadert?",
-                    "enum": ["Ja", "Ik weet het niet zeker", "Nee"]
+                    "title": "Does the process contribute to how a governmental institution categorizes or approaches (groups of) citizens or civil servants?",
+                    "enum": [
+                      "Yes",
+                      "I am not sure",
+                      "No"
+                    ]
                   }
                 },
-                "required": ["q6"]
+                "required": [
+                  "q6"
+                ]
               }
             ]
           },
@@ -315,31 +403,39 @@
               {
                 "properties": {
                   "q5": {
-                    "enum": ["Overige of andere beslissingen"]
+                    "enum": [
+                      "Other or other type of decision"
+                    ]
                   },
                   "q5_option8": {
                     "type": "string",
-                    "title": "Beschrijf het soort beslissing",
+                    "title": "Describe the type of decision",
                     "default": ""
                   },
-                  "output": { "$ref": "#/definitions/outputAI" }
+                  "output": {
+                    "$ref": "#/definitions/outputAI"
+                  }
                 },
-                "required": ["q5_option8"]
+                "required": [
+                  "q5_option8"
+                ]
               },
               {
                 "properties": {
                   "q5": {
                     "enum": [
-                      "Beslissing over prioritering van aanvragen, verzoeken, klachten en bezwaren",
-                      "Beslissing over formele klachten en bezwaren",
-                      "Beslissing met directe financiële gevolgen voor burger of ambtenaar, \nzoals bijvoorbeeld beslissingen over uitkering, toeslag, subsidie, boete, terugbetaling of mogelijkheid tot betalingsregeling",
-                      "Beslissing over aanvragen en verzoeken zonder directe financiële gevolgen, \nzoals bijvoorbeeld toekenning van een aanvraag van diensten of vergunningtoekenning",
-                      "Beslissing over controle, onderzoek of verzoek tot aanvullende informatieverschaffing",
-                      "Beslissing over toewijzing van scholen",
-                      "Beslissingen over te geven advies of het (proactief) aanbieden van diensten of voorzieningen"
+                      "Decision on the prioritization of applications, requests, complaints, and objections.",
+                      "Decision on formal complaints and objections",
+                      "Decision with direct financial consequences for a citizen or civil servant,\nsuch as decisions regarding benefits, allowances, subsidies, fines, refunds, or the possibility of a payment plan",
+                      "Decision on applications and requests without direct financial consequences,\nsuch as the approval of a service request or the granting of a permit",
+                      "Decision on inspection, investigation, or requests for additional information",
+                      "Decision on school assignments.",
+                      "Decisions on providing advice or (proactively) offering services or provisions."
                     ]
                   },
-                  "effect": { "$ref": "#/definitions/effectAI" }
+                  "effect": {
+                    "$ref": "#/definitions/effectAI"
+                  }
                 }
               }
             ]
@@ -349,31 +445,45 @@
               {
                 "properties": {
                   "q6": {
-                    "enum": ["Ja"]
+                    "enum": [
+                      "Yes"
+                    ]
                   },
-                  "effect": { "$ref": "#/definitions/effectAI" }
+                  "effect": {
+                    "$ref": "#/definitions/effectAI"
+                  }
                 }
               },
               {
                 "properties": {
                   "q6": {
-                    "enum": ["Ik weet het niet zeker"]
+                    "enum": [
+                      "I am not sure"
+                    ]
                   },
                   "q6_unsure": {
                     "type": "string",
-                    "title": "Geef een korte beschrijving van het proces en hoe dit burgers of ambtenaren raakt.",
+                    "title": "Give a short description of the process and how this affects citizens or civil servants.",
                     "default": ""
                   },
-                  "effect": { "$ref": "#/definitions/effectAI" }
+                  "effect": {
+                    "$ref": "#/definitions/effectAI"
+                  }
                 },
-                "required": ["q6_unsure"]
+                "required": [
+                  "q6_unsure"
+                ]
               },
               {
                 "properties": {
                   "q6": {
-                    "enum": ["Nee"]
+                    "enum": [
+                      "No"
+                    ]
                   },
-                  "output": { "$ref": "#/definitions/outputAI" }
+                  "output": {
+                    "$ref": "#/definitions/outputAI"
+                  }
                 }
               }
             ]
@@ -384,66 +494,80 @@
     "properties": {
       "q1": {
         "type": "string",
-        "title": "Welke van de volgende categorieën beschrijft de uitkomst van de toepassing het beste??",
+        "title": "What type of output does the application derive?",
         "enum": [
-          "Een ingeschatte score, rangschikking of kans",
-          "Een ingeschat label of classificatie zoals ja/nee, hoog/laag of een indeling in groepen.\nBijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie",
-          "Een aanbeveling",
-          "Een beslissing",
-          "Content, zoals geschreven tekst, video, audio of  afbeeldingen",
-          "Een dashboard of grafiek met enkel rechtstreekse datavisualisatie.\nWanneer in dit dashboard een van de eerdere opties wordt weergeven, kies dan de eerdere optie.",
-          "Een ander soort output"
+          "An estimated score, ranking or probability",
+          "An estimated label or classification (such as yes/no, high/low) or allocation to groups\n(for instance, for routing, communication purposes or risk classification)",
+          "A recommendation",
+          "A decision",
+          "Content, such as written text, video, audio or images",
+          "A dashboard or graph with straight-forward data visualisation\n(if on this dashboard one of the above options are displayed, select this option)",
+          "Another type of output"
         ]
       }
     },
-    "required": ["q1"],
+    "required": [
+      "q1"
+    ],
     "dependencies": {
       "q1": {
         "oneOf": [
           {
             "properties": {
               "q1": {
-                "enum": ["Een ander soort output"]
+                "enum": [
+                  "Another type of output"
+                ]
               },
               "q1_option6": {
                 "type": "string",
-                "title": "Geef een beschrijving van de output",
+                "title": "Give a description of the output",
                 "default": ""
               },
-              "output": { "$ref": "#/definitions/outputNoAI" }
+              "output": {
+                "$ref": "#/definitions/outputNoAI"
+              }
             },
-            "required": ["q1_option6"]
+            "required": [
+              "q1_option6"
+            ]
           },
           {
             "properties": {
               "q1": {
-                "enum": ["Een dashboard of grafiek met enkel rechtstreekse datavisualisatie.\nWanneer in dit dashboard een van de eerdere opties wordt weergeven, kies dan de eerdere optie."]
+                "enum": [
+                  "A dashboard or graph with straight-forward data visualisation\n(if on this dashboard one of the above options are displayed, select this option)"
+                ]
               },
-              "output": { "$ref": "#/definitions/outputNoAI" }
+              "output": {
+                "$ref": "#/definitions/outputNoAI"
+              }
             }
           },
           {
             "properties": {
               "q1": {
                 "enum": [
-                  "Een ingeschatte score, rangschikking of kans",
-                  "Een ingeschat label of classificatie zoals ja/nee, hoog/laag of een indeling in groepen.\nBijvoorbeeld ten behoeve van routering, communicatiecampagnes of risicoclassificatie",
-                  "Een aanbeveling",
-                  "Een beslissing",
-                  "Content, zoals geschreven tekst, video, audio of  afbeeldingen"
+                  "An estimated score, ranking or probability",
+                  "An estimated label or classification (such as yes/no, high/low) or allocation to groups\n(for instance, for routing, communication purposes or risk classification)",
+                  "A recommendation",
+                  "A decision",
+                  "Content, such as written text, video, audio or images"
                 ]
               },
               "q2": {
                 "type": "string",
-                "title": "Bevat de toepassing een model of algoritme dat uit data is afgeleid?",
+                "title": "Does the application contain a model or decision rule that is derived from data?",
                 "enum": [
-                  "Ja, het model of algoritme is handmatig opgesteld, maar inzichten uit data-analyse hebben geholpen bij het ontwerp",
-                  "Ja, het model of algoritme is afgeleid uit data met behulp van statistiek, optimalisatie, simulatie, machine learning of een vergelijkbare techniek",
-                  "Nee"
+                  "Yes, the model or algorithm is manually created, but insights from data-analysis have been used for design choices",
+                  "Yes, the model or algorithm is derived from data with help of statistics, optimalisation, simulation, machine learning or similar methods",
+                  "No"
                 ]
               }
             },
-            "required": ["q2"]
+            "required": [
+              "q2"
+            ]
           }
         ]
       },
@@ -452,52 +576,66 @@
           {
             "properties": {
               "q2": {
-                "enum": ["Ja, het model of algoritme is handmatig opgesteld, maar inzichten uit data-analyse hebben geholpen bij het ontwerp"]
+                "enum": [
+                  "Yes, the model or algorithm is manually created, but insights from data-analysis have been used for design choices"
+                ]
               },
               "q2_yes1": {
                 "type": "string",
-                "title": "Beschrijf hoe het algoritme tot stand gekomen is. Op welke manier heeft data-analyse bijgedragen?",
+                "title": "Explain how the algorithm was developed and the role data analysis played in influencing its design.",
                 "default": ""
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Volgende stap",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "title": "Next step",
+                "default": "The following questions pertain to the process in which the application is used. For answering these questions, focus on how the application is integrated into the overall process.\n\nFor these questions, the application's role in the decision-making process is not relevant."
               },
-              "impact": { "$ref": "#/definitions/impact" }
+              "impact": {
+                "$ref": "#/definitions/impact"
+              }
             },
-            "required": ["q2_yes1"]
+            "required": [
+              "q2_yes1"
+            ]
           },
           {
             "properties": {
               "q2": {
-                "enum": ["Ja, het model of algoritme is afgeleid uit data met behulp van statistiek, optimalisatie, simulatie, machine learning of een vergelijkbare techniek"]
+                "enum": [
+                  "Yes, the model or algorithm is derived from data with help of statistics, optimalisation, simulation, machine learning or similar methods"
+                ]
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "title": "Based on your answers, your application is an AI system according to the AI Act. It may also qualify as a high-impact algorithm. Complete the following questionnaire to find out.",
+                "default": "The following questions pertain to the process in which the application is used. For answering these questions, focus on how the application is integrated into the overall process.\n\nFor these questions, the application's role in the decision-making process is not relevant."
               },
-              "impact": { "$ref": "#/definitions/impactAI" }
+              "impact": {
+                "$ref": "#/definitions/impactAI"
+              }
             }
           },
           {
             "properties": {
               "q2": {
-                "enum": ["Nee"]
+                "enum": [
+                  "No"
+                ]
               },
               "q3": {
                 "type": "string",
-                "title": "Is de toepassing automatisering van door mensen opgestelde regels? ",
+                "title": "Is the application an automation of rules defined by humans? ",
                 "enum": [
-                  "Ja, een-op-een automatisering van in wet- of regelgeving of formeel beleid vastgestelde regels",
-                  "Ja, automatisering van regels, maar deze zijn niet expliciet vastgesteld in wet- of regelgeving of formeel beleid",
-                  "Ja, logica- en kennis-gebaseerde benaderingen van AI waarbij uitkomsten worden afgeleid uit gecodeerde kennis of uit een symbolische weergave van de op te lossen taak",
-                  "Nee"
+                  "Yes, the application is a straightforward automation of rules defined in law, regulation, or formal policy",
+                  "Yes, automatisation of rules, but these are not explicitly defined in law, regulation, or formal policy",
+                  "Yes, logic- and knowledge-based approaches in which output are infered from encoded knowledge or symbolic representation",
+                  "No"
                 ]
               }
             },
-            "required": ["q3"]
+            "required": [
+              "q3"
+            ]
           }
         ]
       },
@@ -506,61 +644,81 @@
           {
             "properties": {
               "q3": {
-                "enum": ["Ja, een-op-een automatisering van in wet- of regelgeving of formeel beleid vastgestelde regels"]
+                "enum": [
+                  "Yes, the application is a straightforward automation of rules defined in law, regulation, or formal policy"
+                ]
               },
               "q3_yes1": {
                 "type": "string",
-                "title": "Welk formeel beleid, wet- of regelgeving? Welk artikel, lid of paragraaf van deze regelgeving?",
+                "title": "Which official law, regulation or policy? Which article, clause or paragraph of the regulation?",
                 "default": ""
               },
-              "output": { "$ref": "#/definitions/outputNoAI" }
+              "output": {
+                "$ref": "#/definitions/outputNoAI"
+              }
             },
-            "required": ["q3_yes1"]
+            "required": [
+              "q3_yes1"
+            ]
           },
           {
             "properties": {
               "q3": {
-                "enum": ["Ja, automatisering van regels, maar deze zijn niet expliciet vastgesteld in wet- of regelgeving of formeel beleid"]
+                "enum": [
+                  "Yes, automatisation of rules, but these are not explicitly defined in law, regulation, or formal policy"
+                ]
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Volgende stap",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "title": "Next step",
+                "default": "The following questions pertain to the process in which the application is used. For answering these questions, focus on how the application is integrated into the overall process.\n\nFor these questions, the application's role in the decision-making process is not relevant."
               },
-              "impact": { "$ref": "#/definitions/impact" }
+              "impact": {
+                "$ref": "#/definitions/impact"
+              }
             }
           },
           {
             "properties": {
               "q3": {
-                "enum": ["Ja, logica- en kennis-gebaseerde benaderingen van AI waarbij uitkomsten worden afgeleid uit gecodeerde kennis of uit een symbolische weergave van de op te lossen taak"]
+                "enum": [
+                  "Yes, logic- and knowledge-based approaches in which output are infered from encoded knowledge or symbolic representation"
+                ]
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Deze toepassing is waarschijnlijk een AI systeem volgens de AI verordening. Mogelijk is dit systeem ook een impactvol algoritme, vul daarvoor de volgende vragen in.",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "title": "Your application is an AI system according to the AI Act. It may also qualify as a high-impact algorithm. Complete the following questionnaire to find out.",
+                "default": "The following questions pertain to the process in which the application is used. For answering these questions, focus on how the application is integrated into the overall process.\n\nFor these questions, the application's role in the decision-making process is not relevant."
               },
-              "impact": { "$ref": "#/definitions/impactAI" }
+              "impact": {
+                "$ref": "#/definitions/impactAI"
+              }
             }
           },
           {
             "properties": {
               "q3": {
-                "enum": ["Nee"]
+                "enum": [
+                  "No"
+                ]
               },
               "q3_no": {
                 "type": "string",
-                "title": "Geef een korte beschrijving van het ontwerp van de toepassing.",
+                "title": "Give a description of the design of the application.",
                 "default": ""
               },
               "outputIntermediate": {
                 "type": "string",
-                "title": "Volgende stap",
-                "default": "De volgende vragen gaan over het proces waarin de toepassing gebruikt wordt. Focus hierbij op het proces. \nHet maakt voor deze vragen niet uit of de toepassing slechts een kleine voorbereidende rol heeft."
+                "title": "Next step",
+                "default": "The following questions pertain to the process in which the application is used. For answering these questions, focus on how the application is integrated into the overall process.\n\nFor these questions, the application's role in the decision-making process is not relevant."
               },
-              "impact": { "$ref": "#/definitions/impact" }
+              "impact": {
+                "$ref": "#/definitions/impact"
+              }
             },
-            "required": ["q3_no"]
+            "required": [
+              "q3_no"
+            ]
           }
         ]
       }
@@ -572,16 +730,16 @@
     },
     "q2": {
       "ui:widget": "radio",
-      "ui:description":"Data omvat alle vormen van elektronische gegevens. Tekst, afbeeldingen, audio zijn ook data. \n\nVerschillende vormen van algoritmes kunnen uit data worden afgeleid. Bij regel-gebasseerde algoritmes kunnen drempelwaardes voor (uitval)regels  of weegfactoren voor beslissingen uit data worden berekend. \nStatistische modellen worden gefit op data en machine learning wordt gebruikt om een model te leren uit data. Large language modellen zoals ChatGPT maken gebruik van machine learning."
+      "ui:description": "Data encompasses all forms of electronic information, including text, images, and audio. Various types of algorithms can be derived from data. In rule-based algorithms, thresholds for (decision) rules or weighting factors for decisions can be calculated from data. Classical statistical models, such as regression models, are also derived from data. Machine learning is used to train a model from data. Large language models, such as ChatGPT, utilize machine learning."
     },
     "q3": {
       "ui:widget": "radio",
-      "ui:description": "Een voorbeeld van in wet- of regelgeving vastgestelde regels is een regelgebaseerd algoritme dat bij aanvraag voor een bijstandsuitkering geautomatiseerd aangeeft wanneer niet is voldaan inkomens- en vermogenseisen. De regels in het algoritme zijn in dat geval een letterlijke implementatie van de normen in de participatiewet.\nWanneer een norm open is gedefninieerd in wet- of regelgeving en deze verder worden gespecificeerd in de toepassing, is de toepassing geen een-op-een automatisering van wet- of regelgeving.\n\nVoorbeelden van door mensen opgestelde regels zijn een regelgebaseerd algoritme waarbij een werkinstructie is vertaald naar een algoritme, een risicoprofiel waarbij de regels met de hand zijn opgesteld op basis van ervaring van medewerkers of wettelijke normen die verder gespecificeerd zijn in regels.\n\nLogica en op kennis gebaseerde benaderingen worden ook wel symbolische AI genoemd (symbolic AI). Onder deze  vorm van AI vallen kennisrepresentatie, inductief (logisch) programmeren, kennisbanken, inferentie- en deductiemachines, (symbolisch) redeneren. Deze technologie wordt vaak ingezet in expert systemen."
+      "ui:description": "An example of rules established in laws or regulations is a rule-based algorithm that automatically determines whether the income and asset requirements are met when applying for social assistance. In this case, the rules in the algorithm are a direct implementation of norms set, for instance, in the Dutch Participation Act.\n\nWhen a standard is not clearly defined in legislation and is interpreted, the application is not a one-to-one automation of the law or regulation.\n\nExamples of rules created by humans include a rule-based algorithm where a work instruction is translated into a decision rule, a risk profile where the rules are manually created based on employees' experience, or legal standards that are further specified into rules.\n\nLogic- and knowledge-based approaches are also known as symbolic AI systems. These types of AI systems include knowledge representation, inductive (logical) programming, knowledge bases, inference and deduction machines, and (symbolic) reasoning. These forms of technology are rare."
     },
     "q4": {
       "ui:widget": "radio",
       "ui:enableMarkdownInDescription": true,
-      "ui:description": "Denk aan prioritering van de opvolging van een vraag of verzoek van een burger, wel/geen verzoek aan burger om aanvullende informatie aan te leveren, wel/geen selectie voor controle of inspectie, wel/niet (proactief) aanbieden van specifieke voorziening bij bijstand etc.\n\n**Let op: een beslissing is veel breder dan een formeel besluit.**"
+      "ui:description": "Consider prioritization, follow-up on a question or request from a citizen. For example, whether or not to request additional information from a citizen, whether or not to select for inspection or control, whether or not to (proactively) offer a specific provision in the context of social assistance, etc.\n\n**Note: A decision is much broader than a formal decision as defined in the National Administrative Law.**"
     },
     "q5": {
       "ui:widget": "radio"
@@ -591,7 +749,7 @@
     },
     "q7": {
       "ui:widget": "radio",
-      "ui:description": "Kies bij twijfel de bovenste van de opties waarover u twijfelt."
+      "ui:description": "If in doubt, choose the top option among those you are unsure about."
     },
     "outputIntermediate": {
       "ui:widget": "textarea",
