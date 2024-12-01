@@ -242,26 +242,31 @@
     },
     "properties": {
       "q1": {
-        "type": "string",
+        "type": "array",
         "title": "Tot welke van de volgende categorieën behoort de uitkomst van de toepassing?",
-        "enum": [
-          "Een ingeschatte score, rangschikking of kans",
-          "Een ingeschat label of classificatie",
-          "Een aanbeveling",
-          "Een beslissing",
-          "Content (geschreven tekst, video, audio of afbeeldingen)",
-          "Een ander soort output"
-        ]
+        "items": {
+          "type": "string",
+          "enum": [
+            "Een ingeschatte score, rangschikking of kans",
+            "Een ingeschat label of classificatie",
+            "Een aanbeveling",
+            "Een beslissing",
+            "Content (geschreven tekst, video, audio of afbeeldingen)",
+            "Een ander soort output"
+          ]
+        },
+        "minItems": 1,
+        "uniqueItems": true
       }
     },
-    "required": ["q1"],
     "dependencies": {
       "q1": {
         "oneOf": [
           {
             "properties": {
               "q1": {
-                "enum": ["Een ander soort output"]
+                "maxItems": 1,
+                "contains": { "enum": ["Een ander soort output"] }
               },
               "q1_option6": {
                 "type": "string",
@@ -275,12 +280,26 @@
           {
             "properties": {
               "q1": {
-                "enum": [
-                  "Een ingeschatte score, rangschikking of kans",
-                  "Een ingeschat label of classificatie",
-                  "Een aanbeveling",
-                  "Een beslissing",
-                  "Content (geschreven tekst, video, audio of afbeeldingen)"
+                "anyOf": [
+                  {
+                    "contains": {
+                      "enum": ["Een ingeschatte score, rangschikking of kans"]
+                    }
+                  },
+                  {
+                    "contains": {
+                      "enum": ["Een ingeschat label of classificatie"]
+                    }
+                  },
+                  { "contains": { "enum": ["Een aanbeveling"] } },
+                  { "contains": { "enum": ["Een beslissing"] } },
+                  {
+                    "contains": {
+                      "enum": [
+                        "Content (geschreven tekst, video, audio of afbeeldingen)"
+                      ]
+                    }
+                  }
                 ]
               },
               "q2": {
@@ -415,7 +434,7 @@
   },
   "uiSchema": {
     "q1": {
-      "ui:widget": "radio"
+      "ui:widget": "checkboxes"
     },
     "q2": {
       "ui:widget": "radio"
